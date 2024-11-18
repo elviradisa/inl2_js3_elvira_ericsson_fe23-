@@ -1,7 +1,7 @@
 import React from "react";
 import createBoard from "./utils.js"
-import Cell from "./Cell.jsx";
-console.log(createBoard)
+import MineCell from "./MineCell.jsx";
+// console.log(createBoard)
 
 class BoardComponent extends React.Component {
     // skapar komponentens initiala state
@@ -92,11 +92,12 @@ class BoardComponent extends React.Component {
                         cellens data, och onCLick-event som skickar index till clickHandler när cellen klickas
                     */}
                     {board.map((cell, i) => (
-                        <Cell
+                        <MineCell
                             key={i}
                             cell={cell}
                             onClick={() => this.clickHandler(i)}
-                        ></Cell>
+                            gameOver={gameOver}
+                        ></MineCell>
                     ))}
                 </div>
             </div>

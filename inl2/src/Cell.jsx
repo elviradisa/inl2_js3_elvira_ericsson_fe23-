@@ -4,14 +4,17 @@ import React from "react";
 // propen cell innehåller info om cellens tillstång
 // propen onClick är en callbackfunktion som hanterar klickningar
 export default function Cell ({cell = {}, onClick}) {
-    console.log(cell)
+    // console.log(cell)
     let displayValue = '';
  
     // om en cell har en eller flera grann-minor sätts displayValue till det antalet
     if (cell.visible) {
         if (cell.numberOfNeighbouringMines > 0) {
             displayValue = cell.numberOfNeighbouringMines;
-        }
+        } 
+    } else if (cell.displayValue) {
+        // Visa 'X' om displayValue är satt till 'X'
+        displayValue = cell.displayValue;
     }
 
     // anropas när cellen klickas
